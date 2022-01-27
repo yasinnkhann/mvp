@@ -36,7 +36,7 @@ export default function ChatScreen({ chat, messages }) {
   );
 
   const scrollToBottom = () => {
-    endOfMessageRef.current.scrollIntoView({
+    endOfMessageRef.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
