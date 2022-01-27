@@ -53,7 +53,7 @@ const Receiver = styled(MessageStyle)`
 
 const Timestamp = styled.span`
   color: {userLoggedIn.email === user ? 'white' : 'black'};
-  padding: 10px;
+  padding: 5px;
   font-size: 10px;
   position: absolute;
   bottom: 0;

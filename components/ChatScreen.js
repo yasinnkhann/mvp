@@ -35,6 +35,13 @@ export default function ChatScreen({ chat, messages }) {
       .where('email', '==', getRecipientsEmail(chat.users, user))
   );
 
+  const scrollToBottom = () => {
+    endOfMessageRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
   const showMessages = () => {
     if (messagesSnapshot) {
       return messagesSnapshot.docs.map(message => (
@@ -52,13 +59,6 @@ export default function ChatScreen({ chat, messages }) {
         <Message key={message.id} user={message.user} message={message} />
       ));
     }
-  };
-
-  const scrollToBottom = () => {
-    endOfMessageRef.current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
   };
 
   const sendMessage = e => {
@@ -117,6 +117,8 @@ export default function ChatScreen({ chat, messages }) {
 
       <MessageContainer>
         {showMessages()}
+        {/* test */}
+        {scrollToBottom()}
         <EndOfMessage ref={endOfMessageRef} />
       </MessageContainer>
 
@@ -170,9 +172,16 @@ const HeaderInfo = styled.div`
 const MessageContainer = styled.div`
   padding: 30px;
   min-height: 75vh;
-  background: url('https://www.freeiconspng.com/uploads/aol-icon-8.png');
+  /* background-color: whitesmoke; */
+  background: linear-gradient(
+    90deg,
+    rgba(0, 212, 255, 1) 33%,
+    rgba(240, 231, 1, 1) 66%
+  );
+
+  /* background: url('https://www.freeiconspng.com/uploads/aol-icon-8.png');
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 100%; */
 `;
 
 const EndOfMessage = styled.div`
