@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import { Button } from '@material-ui/core';
 import styled from 'styled-components';
 import { auth, provider } from '../firebaseConfig.js';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import GoogleButton from 'react-google-button';
 
 export default function login() {
 	const signIn = () => {
@@ -23,11 +23,7 @@ export default function login() {
 
 			<LoginContainer>
 				<AolLogo src='https://cdn.worldvectorlogo.com/logos/aol-instant-messenger.svg' />
-
-				<Button onClick={signIn} variant='outlined'>
-					Sign in with Google
-					<GoogleIcon src='https://logowik.com/content/uploads/images/985_google_g_icon.jpg' />
-				</Button>
+				<GoogleButton onClick={signIn} />
 			</LoginContainer>
 		</Container>
 	);
@@ -54,9 +50,4 @@ const AolLogo = styled.img`
 	height: 200px;
 	width: 200px;
 	margin-bottom: 50px;
-`;
-
-const GoogleIcon = styled.img`
-	height: 2.5rem;
-	width: 3rem;
 `;

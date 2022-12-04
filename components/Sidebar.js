@@ -49,7 +49,6 @@ export default function Sidebar() {
 		<Container>
 			<Header>
 				<UserAvatar src={user.photoURL} onClick={() => signOut(auth)} />
-				{/* <UserAvatar src={user.photoURL} onClick={() => auth.signOut()} /> */}
 			</Header>
 
 			<Search>
